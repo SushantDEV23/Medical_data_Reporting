@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/clinicals.css' %}">
+    <title>Clinical Report</title>
+</head>
+<body>
+    <h1>Test Report</h1>
+    <table border="3">
+        <thead>
+            <th>Test Name</th>
+            <th>Test Value</th>
+            <th>Test Date</th>
+        </thead>
+        {%for entry in data%}
+        <tr>
+            <td>{{entry.testName}}</td>
+            <td>{{entry.testValue}}</td>
+            <td>{{entry.testDate}}</td>
+        </tr>
+        {%endfor%}
+    </table><br>
+    <a href="/">Patients List</a>
+</body>
+</html>
