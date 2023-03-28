@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'MedicalApp'
+    
 ]
 
 MIDDLEWARE = [
@@ -80,7 +82,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'medicaldb',
         'USER': 'root',
-        'PASSWORD': 'Sushant@sql23'
+        'PASSWORD': 'Sushant@sql23',
+	#   'HOST' : 'docker-mysql'
     }
 }
 
@@ -129,3 +132,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIR=[
     os.path.join(BASE_DIR, 'static')
 ]
+
+# Below is the code to disable browsable in production and to view in json format
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES' : ('rest_framework.renderers.JSONRenderer',)
+}
